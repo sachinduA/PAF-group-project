@@ -47,7 +47,7 @@ public class SupervisorController {
 		try {
 			@SuppressWarnings("unused")
 			Supervisor existSupervisor = service.get(id);
-			supervisor.setId(id);
+			supervisor.setSupervisor_id(id);
 			service.save(supervisor);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (NoSuchElementException e) {

@@ -1,41 +1,49 @@
 package com.gadgetbadget.GadgetBadgetbackend.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "supervisors")
 public class Supervisor {
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int supervisor_id;
 	private String firstName;
 	private String lastName;
 	private String nic;
 	private String category;
 
+	@JsonIgnore
+	@OneToMany(mappedBy = "supervisor")
+	private Set<Research> researches;
 
 	public Supervisor() {
 	}
 
-	public Supervisor(int id, String firstName, String lastName, String nic, String category) {
+	public Supervisor(int supervisor_id, String firstName, String lastName, String nic, String category) {
 		super();
-		this.id = id;
+		this.supervisor_id = supervisor_id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.nic = nic;
 		this.category = category;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int getId() {
-		return id;
+	public int getSupervisor_id() {
+		return supervisor_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setSupervisor_id(int supervisor_id) {
+		this.supervisor_id = supervisor_id;
 	}
 
 	public String getFirstName() {
@@ -68,6 +76,14 @@ public class Supervisor {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public Set<Research> getResearches() {
+		return researches;
+	}
+
+	public void setResearches(Set<Research> researches) {
+		this.researches = researches;
 	}
 
 }
