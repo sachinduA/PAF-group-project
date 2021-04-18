@@ -47,7 +47,7 @@ public class FunderController {
 		try {
 			@SuppressWarnings("unused")
 			Funder existFunder = service.get(id);
-			funder.setId(id);
+			funder.setFunder_id(id);
 			service.save(funder);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (NoSuchElementException e) {
