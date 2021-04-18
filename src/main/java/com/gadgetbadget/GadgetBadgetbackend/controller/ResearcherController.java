@@ -47,7 +47,7 @@ public class ResearcherController {
 		try {
 			@SuppressWarnings("unused")
 			Researcher existResearcher = service.get(id);
-			researcher.setId(id);
+			researcher.setResearcher_id(id);
 			service.save(researcher);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (NoSuchElementException e) {

@@ -1,42 +1,48 @@
 package com.gadgetbadget.GadgetBadgetbackend.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "researchers")
 public class Researcher {
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int researcher_id;
 	private String firstName;
 	private String lastName;
 	private String nic;
 
-	/*@ManyToMany
-	@JoinTable(name = "research_management", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "id"))
-	private Set<Research> researches = new HashSet<>(); */
+	@JsonIgnore
+	@ManyToMany(mappedBy = "researchers")
+	private Set<Research> researches = new HashSet<>();
 
 	public Researcher() {
 	}
 
-	public Researcher(int id, String firstName, String lastName, String nic) {
+	public Researcher(int researcher_id, String firstName, String lastName, String nic) {
 		super();
-		this.id = id;
+		this.researcher_id = researcher_id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.nic = nic;
 	}
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int getId() {
-		return id;
+
+	public int getResearcher_id() {
+		return researcher_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setResearcher_id(int researcher_id) {
+		this.researcher_id = researcher_id;
 	}
 
 	public String getFirstName() {
@@ -62,4 +68,13 @@ public class Researcher {
 	public void setNic(String nic) {
 		this.nic = nic;
 	}
+
+	public Set<Research> getResearches() {
+		return researches;
+	}
+
+	public void setResearches(Set<Research> researches) {
+		this.researches = researches;
+	}
+
 }
