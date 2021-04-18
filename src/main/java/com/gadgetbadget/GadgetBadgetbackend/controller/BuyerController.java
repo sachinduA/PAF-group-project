@@ -47,7 +47,7 @@ public class BuyerController {
 		try {
 			@SuppressWarnings("unused")
 			Buyer existBuyer = service.get(id);
-			buyer.setId(id);
+			buyer.setBuyer_id(id);
 			service.save(buyer);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (NoSuchElementException e) {
