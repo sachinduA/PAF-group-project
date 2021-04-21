@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,9 +21,10 @@ public class Buyer {
 	private String firstName;
 	private String lastName;
 	private String nic;
+	private String contactNo;
 
 	@JsonIgnore
-	@ManyToMany(mappedBy = "researchers")
+	@OneToMany(mappedBy = "buyer")
 	private Set<Research> researches = new HashSet<>();
 
 	public Buyer() {
@@ -68,6 +69,14 @@ public class Buyer {
 
 	public void setNic(String nic) {
 		this.nic = nic;
+	}
+
+	public String getContactNo() {
+		return contactNo;
+	}
+
+	public void setContactNo(String contactNo) {
+		this.contactNo = contactNo;
 	}
 
 	public Set<Research> getResearches() {
