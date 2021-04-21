@@ -21,6 +21,7 @@ public class Funder {
 	private String firstName;
 	private String lastName;
 	private String nic;
+	private String contactNo;
 
 	@JsonIgnore
 	@ManyToMany(mappedBy = "researchers")
@@ -67,6 +68,14 @@ public class Funder {
 
 	public void setNic(String nic) {
 		this.nic = nic;
+	}
+
+	public String getContactNo() {
+		return contactNo;
+	}
+
+	public void setContactNo(String contactNo) {
+		this.contactNo = contactNo;
 	}
 
 	public Set<Research> getResearches() {
