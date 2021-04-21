@@ -28,9 +28,9 @@ public class Research {
 	@JoinTable(name = "research_management", joinColumns = @JoinColumn(name = "research_id"), inverseJoinColumns = @JoinColumn(name = "researcher_id"))
 	private Set<Researcher> researchers = new HashSet<>();
 
-	@ManyToMany()
-	@JoinTable(name = "research_buyings", joinColumns = @JoinColumn(name = "research_id"), inverseJoinColumns = @JoinColumn(name = "buyer_id"))
-	private Set<Buyer> buyers = new HashSet<>();
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "buyer_id")
+	private Buyer buyer;
 
 	@ManyToMany()
 	@JoinTable(name = "research_fundings", joinColumns = @JoinColumn(name = "research_id"), inverseJoinColumns = @JoinColumn(name = "funder_id"))
@@ -92,12 +92,12 @@ public class Research {
 		this.researchers = researchers;
 	}
 
-	public Set<Buyer> getBuyers() {
-		return buyers;
+	public Buyer getBuyer() {
+		return buyer;
 	}
 
-	public void setBuyers(Set<Buyer> buyers) {
-		this.buyers = buyers;
+	public void setBuyer(Buyer buyer) {
+		this.buyer = buyer;
 	}
 
 	public Set<Funder> getFunders() {
