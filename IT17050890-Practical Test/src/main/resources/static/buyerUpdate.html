@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+	integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+	crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+	integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/index.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>GadgetBadget</title>
+</head>
+<body>
+	<div class="container">
+		<div class="list">
+			<div class="card">
+				<h2>Update Buyer</h2>
+				<hr />
+				
+				<form action="updateBuyer" method="post">
+					<input id="buyer_id" hidden="true"/>
+					<br />
+	
+					<label>First Name:</label>
+					<input id="firstName" type="text"/>
+					<br />
+	
+					<label>Last Name:</label>
+					<input id="lastName" type="text"/>
+					<br />
+	
+					<label>NIC:</label>
+					<input id="nic" type="text"/>
+					<br />
+	
+					<label>Contact No:</label>
+					<input id="contactNo" type="number"/>
+					<br />
+	
+	
+					<button>Update</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="/js/update_buyer.js" async></script>
+</body>
+</html>
