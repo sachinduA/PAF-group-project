@@ -115,7 +115,7 @@ button {
 a:link, a:visited {
 	background-color: white;
 	color: #4CAF50;
-	border: 2px solid #4CAF50;	
+	border: 2px solid #4CAF50;
 	padding: 10px 10px;
 	text-align: center;
 	text-decoration: none;
@@ -126,4 +126,29 @@ a:link, a:visited {
 a:hover, a:active {
 	background-color: #4CAF50;
 	color: white;
+}
+
+.login {
+	margin-left: auto;
+	margin-right: auto;
+	padding-right: 25%;
+	padding-left: 25%;
+}
+
+.login input {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.login-err {
+	background-color: red;
+	color: white;
+	width: 100%;
+	text-align: center;
+	border-radius: 5px;
 }
